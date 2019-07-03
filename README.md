@@ -1,5 +1,7 @@
 # children
 
+[![Build Status](https://travis-ci.com/Gerhut/children.svg?branch=master)](https://travis-ci.com/Gerhut/children)
+
 Filter all non-null values in a Dart list.
 
 ## Usage
