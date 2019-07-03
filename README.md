@@ -12,7 +12,19 @@ A simple usage example:
 import 'package:children/children.dart';
 
 main() {
-  var awesome = new Awesome();
+  var originalList = [
+    "There",
+    "should",
+    "not",
+    "be",
+    "any",
+    null,
+    "in",
+    "list"
+  ];
+  var filteredList = children(originalList);
+  print('originalList: ${originalList}');
+  print('filteredList: ${filteredList}');
 }
 ```
 
