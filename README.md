@@ -1,35 +1,36 @@
 # children
 
-[![Build Status](https://travis-ci.com/Gerhut/children.svg?branch=master)](https://travis-ci.com/Gerhut/children)
+[![Codemagic build status](https://api.codemagic.io/apps/5d22d7268a8d58203fa77cec/5d22d7268a8d58203fa77ceb/status_badge.svg)](https://codemagic.io/apps/5d22d7268a8d58203fa77cec/5d22d7268a8d58203fa77ceb/latest_build)
 
-Filter all non-null values in a Dart list.
+Filter out all non-widgets from an iterable, used in `children` parameter of multi-child layout widgets.
 
 ## Usage
 
-A simple usage example:
-
 ```dart
+import 'package:flutter/widgets.dart';
+
 import 'package:children/children.dart';
 
-main() {
-  var originalList = [
-    "There",
-    "should",
-    "not",
-    "be",
-    "any",
-    null,
-    "in",
-    "list"
-  ];
-  var filteredList = children(originalList);
-  print('originalList: ${originalList}');
-  print('filteredList: ${filteredList}');
+class Post extends StatelessWidget {
+  final String title;
+  final String contents;
+  final bool isExpanded;
+
+  Post({Key key, this.title, this.contents, this.isExpanded = false})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: children([
+        Text(title),
+        isExpanded ? Text(contents) : null,
+      ]),
+    );
+  }
 }
 ```
 
-## Features and bugs
+## License
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: https://github.com/Gerhut/children/issues
+MIT
